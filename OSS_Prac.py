@@ -9,7 +9,7 @@
 import cv2
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default_.xml')
 
-img = cv2.imread('./image/heejin.jpg')
+img = cv2.imread('./image/faces.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 faces = face_cascade.detectMultiScale(gray, 1.1, 4)
@@ -18,6 +18,6 @@ for (x, y, w, h) in faces:
     print(x, y, w, h)
     cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
     
-cv2.namedWindow('Heejin', cv2.WINDOW_NORMAL) //사용자가 사진의 크기를 바꿀 수 있음
-cv2.imshow('Heejin', img)
+cv2.namedWindow('faces', cv2.WINDOW_NORMAL) #사용자가 사진의 크기를 바꿀 수 있음
+cv2.imshow('faces', img)
 cv2.waitKey()
